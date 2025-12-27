@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/dklesev/terraform-provider-pihole/compare/v1.2.0...v1.2.1) (2025-12-27)
+
+
+### Miscellaneous
+
+* init ([f4a3e34](https://github.com/dklesev/terraform-provider-pihole/commit/f4a3e346c6487dfb07a7e3cc58e587adf1004ab6))
+
 ## [1.2.0](https://github.com/dklesev/terraform-provider-pihole/compare/v1.1.0...v1.2.0) (2025-12-27)
 
 
