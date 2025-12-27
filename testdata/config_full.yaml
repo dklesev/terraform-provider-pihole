@@ -1,0 +1,76 @@
+# Comprehensive Pi-hole Configuration Test
+# This YAML contains a full configuration for testing all config resources
+
+groups:
+  testing:
+    description: "Test group for integration testing"
+    enabled: true
+
+clients:
+  "AA:BB:CC:DD:EE:FF":
+    comment: "Test Client"
+    groups: [default, testing]
+
+domains:
+  allow_exact:
+    test.example.com:
+      comment: "Test allow domain"
+      groups: [default]
+
+  deny_exact:
+    blocked.example.com:
+      comment: "Test block domain"
+      groups: [default]
+
+lists:
+  blocklists:
+    "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts":
+      comment: "StevenBlack hosts"
+      groups: [default]
+
+# Configuration settings
+config:
+  dns:
+    interface: ""
+    listening_mode: "LOCAL"
+    domain_needed: false
+    expand_hosts: false
+    dnssec: false
+    query_logging: true
+    blocking_active: true
+    cache_size: 10000
+    cache_optimizer: 3600
+    rate_limit_count: 1000
+    rate_limit_interval: 60
+    domain_name: "lan"
+    domain_local: true
+    block_ttl: 2
+    bogus_priv: true
+    mozilla_canary: true
+    icloud_private_relay: true
+
+  misc:
+    privacy_level: 0
+    delay_startup: 0
+    nice: -10
+    etc_dnsmasq_d: false
+    extra_logging: false
+    read_only: false
+    check_load: true
+    check_shmem: 90
+    check_disk: 90
+    dnsmasq_lines:
+      - "address=/test.local/127.0.0.1"
+      - "address=/another.local/192.168.1.100"
+
+  dhcp:
+    active: false
+    start: ""
+    end: ""
+    router: ""
+    netmask: ""
+    ipv6: false
+    rapid_commit: false
+    multi_dns: false
+    logging: false
+    ignore_unknown_clients: false
