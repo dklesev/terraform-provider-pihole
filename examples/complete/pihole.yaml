@@ -1,0 +1,39 @@
+# Pi-hole Configuration - YAML format
+# All Pi-hole settings managed as code
+
+groups:
+  Default:
+    enabled: true
+  Family:
+    enabled: true
+  Work:
+    enabled: true
+
+clients:
+  "Living Room TV":
+    ip: "192.168.1.10"
+    groups: ["Default", "Family"]
+  "Work Laptop":
+    ip: "192.168.1.20"
+    groups: ["Default", "Work"]
+
+lists:
+  blocklists:
+    - "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
+    - "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/pro.txt"
+
+dns_upstreams:
+  - "8.8.8.8"
+  - "8.8.4.4"
+  - "1.1.1.1"
+
+local_dns:
+  "server.lan": "192.168.1.100"
+  "nas.lan": "192.168.1.50"
+
+config:
+  dns:
+    dnssec: true
+    query_logging: true
+    blocking_active: true
+    cache_size: 10000

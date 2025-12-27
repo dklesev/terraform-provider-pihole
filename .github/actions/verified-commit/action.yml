@@ -1,0 +1,58 @@
+name: Verified Commit
+description: Create a Verified commit via GraphQL createCommitOnBranch for multiple files
+inputs:
+  branch:
+    description: Target branch name to commit to
+    required: false
+  commit-message:
+    description: Commit headline
+    required: true
+  file-globs:
+    description: Newline-separated list of globs to include (modified and untracked files are committed)
+    required: true
+runs:
+  using: composite
+  steps:
+    - id: verified-commit
+      shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
+        FILE_GLOBS: ${{ inputs.file-globs }}
+        BRANCH_INPUT: ${{ inputs.branch }}
+        COMMIT_MESSAGE: ${{ inputs.commit-message }}
+      run: |
+        set -euo pipefail
+        BRANCH="${BRANCH_INPUT:-${GITHUB_REF_NAME}}"
+        tmp_list=$(mktemp)
+        while IFS= read -r glob; do
+          [ -z "$glob" ] && continue
+          git ls-files -mo --exclude-standard $glob || true
+        done <<< "$FILE_GLOBS" | sort -u > "$tmp_list"
+        mapfile -t changed < "$tmp_list"
+        rm -f "$tmp_list"
+        if [ ${#changed[@]} -eq 0 ]; then
+          echo "No files to commit"
+          exit 0
+        fi
+        echo "Committing ${#changed[@]} files..."
+        expected=$(gh api repos/:owner/:repo/branches/"${BRANCH}" --jq .commit.sha || git rev-parse HEAD)
+        files_args=( )
+        for f in "${changed[@]}"; do
+          content_b64=$(base64 -w0 "$f")
+          files_args+=( -F "files[][path]=$f" -F "files[][contents]=$content_b64" )
+        done
+        resp=$(gh api graphql \
+          -F githubRepository="$GITHUB_REPOSITORY" \
+          -F branchName="$BRANCH" \
+          -F expectedHeadOid="$expected" \
+          -F commitMessage="$COMMIT_MESSAGE" \
+          -F "query=@${GITHUB_WORKSPACE}/.github/actions/verified-commit/createCommitOnBranch.gql" \
+          "${files_args[@]}")
+        url=$(echo "$resp" | jq -r '.data.createCommitOnBranch.commit.url // empty')
+        if [ -n "$url" ]; then
+          echo "✅ Created verified commit: $url"
+        else
+          echo "❌ Failed to create commit"
+          echo "$resp" | jq .
+          exit 1
+        fi
