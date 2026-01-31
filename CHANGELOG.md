@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/dklesev/terraform-provider-pihole/compare/v1.0.1...v1.0.2) (2026-01-31)
+
+
+### Miscellaneous
+
+* **deps:** bump actions/checkout from 6.0.1 to 6.0.2 ([#5](https://github.com/dklesev/terraform-provider-pihole/issues/5)) ([9235cc2](https://github.com/dklesev/terraform-provider-pihole/commit/9235cc2df80021fb6fab5bc91e332a693cedf6c8))
+
 ## [1.0.1](https://github.com/dklesev/terraform-provider-pihole/compare/v1.0.0...v1.0.1) (2026-01-19)
 
 
