@@ -26,7 +26,7 @@ runs:
         tmp_list=$(mktemp)
         while IFS= read -r glob; do
           [ -z "$glob" ] && continue
-          git ls-files -mo --exclude-standard $glob || true
+          git ls-files -mo --exclude-standard "$glob" || true
         done <<< "$FILE_GLOBS" | sort -u > "$tmp_list"
         mapfile -t changed < "$tmp_list"
         rm -f "$tmp_list"
