@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.3](https://github.com/dklesev/terraform-provider-pihole/compare/v1.0.2...v1.0.3) (2026-02-26)
+
+
+### Miscellaneous
+
+* **deps:** bump github.com/cloudflare/circl ([#9](https://github.com/dklesev/terraform-provider-pihole/issues/9)) ([9b2960b](https://github.com/dklesev/terraform-provider-pihole/commit/9b2960bdd9833ac14a59956b6ff59a41a3452eee))
+* **deps:** bump goreleaser/goreleaser-action from 6.4.0 to 7.0.0 ([#7](https://github.com/dklesev/terraform-provider-pihole/issues/7)) ([a3cebeb](https://github.com/dklesev/terraform-provider-pihole/commit/a3cebeb3a8efb7cca8120c256882d359b37170d1))
+
 ## [1.0.2](https://github.com/dklesev/terraform-provider-pihole/compare/v1.0.1...v1.0.2) (2026-01-31)
 
 
