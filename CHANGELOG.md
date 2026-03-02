@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.4](https://github.com/dklesev/terraform-provider-pihole/compare/v1.0.3...v1.0.4) (2026-03-02)
+
+
+### Miscellaneous
+
+* **deps:** bump actions/setup-go from 6.2.0 to 6.3.0 ([#10](https://github.com/dklesev/terraform-provider-pihole/issues/10)) ([f0ccbf0](https://github.com/dklesev/terraform-provider-pihole/commit/f0ccbf0fd2e929dae5d58499f9fcfc5272414d3d))
+* **deps:** bump github.com/hashicorp/terraform-plugin-framework ([#12](https://github.com/dklesev/terraform-provider-pihole/issues/12)) ([40e1ae5](https://github.com/dklesev/terraform-provider-pihole/commit/40e1ae51d50bed179e714a52ef0dadfcfaa0bd00))
+* **deps:** bump github.com/hashicorp/terraform-plugin-go ([#11](https://github.com/dklesev/terraform-provider-pihole/issues/11)) ([05110ed](https://github.com/dklesev/terraform-provider-pihole/commit/05110ed48e9590116610b03ba07491e7a905e79a))
+
 ## [1.0.3](https://github.com/dklesev/terraform-provider-pihole/compare/v1.0.2...v1.0.3) (2026-02-26)
 
 
