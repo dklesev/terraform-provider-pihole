@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/dklesev/terraform-provider-pihole/compare/v1.0.4...v1.0.5) (2026-03-10)
+
+
+### Miscellaneous
+
+* **deps:** bump crazy-max/ghaction-import-gpg from 6.3.0 to 7.0.0 ([#14](https://github.com/dklesev/terraform-provider-pihole/issues/14)) ([c2b6931](https://github.com/dklesev/terraform-provider-pihole/commit/c2b6931f296f351dff0a9320868cd298795bf1ca))
+
 ## [1.0.4](https://github.com/dklesev/terraform-provider-pihole/compare/v1.0.3...v1.0.4) (2026-03-02)
 
 
