@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 env:
-  GOLANGCI_LINT_VERSION: 'v2.7.2'
+  GOLANGCI_LINT_VERSION: "v2.11.3"
 
 jobs:
   build:
