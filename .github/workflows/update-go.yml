@@ -1,0 +1,31 @@
+name: Update Go Version
+
+on:
+  schedule:
+    - cron: '0 8 * * 1' # Monday 8am UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/setup-go@4b73464bb391d4059bd26b0524d20df3927bd417 # v6.3.0
+        with:
+          go-version: stable
+      - name: Update Go version in go.mod
+        run: |
+          go get go@latest
+          go mod tidy
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b31d56c2930bc0f22fa6 # v7.0.8
+        with:
+          commit-message: "chore(deps): update Go version"
+          title: "chore(deps): update Go version in go.mod"
+          body: "Automated Go version update via `go get go@latest`."
+          branch: chore/update-go-version
+          labels: dependencies,go
