@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.6](https://github.com/dklesev/terraform-provider-pihole/compare/v1.0.5...v1.0.6) (2026-03-20)
+
+
+### Miscellaneous
+
+* Automate Go version updates via a new workflow and update Go and module dependencies, aligning CI to `go.mod`. ([1f68d15](https://github.com/dklesev/terraform-provider-pihole/commit/1f68d15426be86e7df0fb4d4da07f38012756bfa))
+* **deps:** bump github.com/hashicorp/terraform-plugin-testing ([#17](https://github.com/dklesev/terraform-provider-pihole/issues/17)) ([50da5bc](https://github.com/dklesev/terraform-provider-pihole/commit/50da5bc665ab21e2f63dc0669b2f29d2673b9d72))
+* Update GOLANGCI_LINT_VERSION to v2.11.3 in test workflow. ([00d36f1](https://github.com/dklesev/terraform-provider-pihole/commit/00d36f1ce3ff80e92e9869809e0e624f77f37a59))
+
 ## [1.0.5](https://github.com/dklesev/terraform-provider-pihole/compare/v1.0.4...v1.0.5) (2026-03-10)
 
 
