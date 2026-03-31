@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.7](https://github.com/dklesev/terraform-provider-pihole/compare/v1.0.6...v1.0.7) (2026-03-31)
+
+
+### Miscellaneous
+
+* **deps:** bump actions/setup-go from 6.3.0 to 6.4.0 ([#23](https://github.com/dklesev/terraform-provider-pihole/issues/23)) ([a49e0cf](https://github.com/dklesev/terraform-provider-pihole/commit/a49e0cf0ae865ca7c5ad1d1a808bb67b47a6b88f))
+* **deps:** bump codecov/codecov-action from 5.5.2 to 5.5.3 ([#20](https://github.com/dklesev/terraform-provider-pihole/issues/20)) ([ec9c387](https://github.com/dklesev/terraform-provider-pihole/commit/ec9c38743d0e1477636da6403aeaaeab3ce82854))
+* **deps:** bump codecov/codecov-action from 5.5.3 to 6.0.0 ([#22](https://github.com/dklesev/terraform-provider-pihole/issues/22)) ([a8c663a](https://github.com/dklesev/terraform-provider-pihole/commit/a8c663adb24a895c864824d16fa3dc845090d84b))
+
 ## [1.0.6](https://github.com/dklesev/terraform-provider-pihole/compare/v1.0.5...v1.0.6) (2026-03-20)
 
 
