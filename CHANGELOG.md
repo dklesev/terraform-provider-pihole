@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.0.8](https://github.com/dklesev/terraform-provider-pihole/compare/v1.0.7...v1.0.8) (2026-09-11)
+
+
+### Miscellaneous
+
+* **deps:** bump actions/checkout from 6.0.2 to 6.0.3 ([#34](https://github.com/dklesev/terraform-provider-pihole/issues/34)) ([dc68dd7](https://github.com/dklesev/terraform-provider-pihole/commit/dc68dd765e9310eaf7f94c4411cfae513b825774))
+* **deps:** bump actions/setup-go from 6.4.0 to 6.5.0 ([#38](https://github.com/dklesev/terraform-provider-pihole/issues/38)) ([a5f6b91](https://github.com/dklesev/terraform-provider-pihole/commit/a5f6b91ff4347f42ddef85b832630d0d853b70ad))
+* **deps:** bump github.com/hashicorp/terraform-plugin-docs ([#30](https://github.com/dklesev/terraform-provider-pihole/issues/30)) ([a046773](https://github.com/dklesev/terraform-provider-pihole/commit/a04677370744bc2f1b2232769f1dbacba73718b2))
+* **deps:** bump github.com/hashicorp/terraform-plugin-log ([#40](https://github.com/dklesev/terraform-provider-pihole/issues/40)) ([c1b3e64](https://github.com/dklesev/terraform-provider-pihole/commit/c1b3e64a6cc848f93d61374f0a0f7af3bbd8f18e))
+* **deps:** bump github.com/hashicorp/terraform-plugin-testing ([#27](https://github.com/dklesev/terraform-provider-pihole/issues/27)) ([f3cd0bb](https://github.com/dklesev/terraform-provider-pihole/commit/f3cd0bb819654d1e2f6325ab951f35bdae073ea4))
+* **deps:** bump golangci/golangci-lint-action from 9.2.0 to 9.2.1 ([#31](https://github.com/dklesev/terraform-provider-pihole/issues/31)) ([6c7dc79](https://github.com/dklesev/terraform-provider-pihole/commit/6c7dc7911ad292d1536a84f7adf2e4fc7176357e))
+* **deps:** bump googleapis/release-please-action from 4.4.0 to 4.4.1 ([#24](https://github.com/dklesev/terraform-provider-pihole/issues/24)) ([e6f13c6](https://github.com/dklesev/terraform-provider-pihole/commit/e6f13c6eba2dd3c30c44aeec0d08dadaf5070fba))
+* **deps:** bump goreleaser/goreleaser-action from 7.0.0 to 7.1.0 ([#25](https://github.com/dklesev/terraform-provider-pihole/issues/25)) ([2a2624e](https://github.com/dklesev/terraform-provider-pihole/commit/2a2624e76039e1c47fc67f297679bfeb3b295231))
+* **deps:** bump goreleaser/goreleaser-action from 7.1.0 to 7.2.1 ([#29](https://github.com/dklesev/terraform-provider-pihole/issues/29)) ([08427e9](https://github.com/dklesev/terraform-provider-pihole/commit/08427e9de58ac765cf2d2543c3ad40c3d7d0705b))
+* **deps:** bump goreleaser/goreleaser-action from 7.2.1 to 7.2.2 ([#33](https://github.com/dklesev/terraform-provider-pihole/issues/33)) ([1f2c9e8](https://github.com/dklesev/terraform-provider-pihole/commit/1f2c9e8bb5f6ab220a578daab7a917b32e2b743f))
+* **deps:** bump the go_modules group across 1 directory with 2 updates ([#39](https://github.com/dklesev/terraform-provider-pihole/issues/39)) ([696bc28](https://github.com/dklesev/terraform-provider-pihole/commit/696bc2852a837ad97dab18014df1e3d316871482))
+
 ## [1.0.7](https://github.com/dklesev/terraform-provider-pihole/compare/v1.0.6...v1.0.7) (2026-03-31)
 
 
