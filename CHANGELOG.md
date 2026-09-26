@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.9](https://github.com/dklesev/terraform-provider-pihole/compare/v1.0.8...v1.0.9) (2026-09-26)
+
+
+### Bug Fixes
+
+* **domains:** escape '+' in domain path segments ([#43](https://github.com/dklesev/terraform-provider-pihole/issues/43)) ([7ab144d](https://github.com/dklesev/terraform-provider-pihole/commit/7ab144daba7b116e687a010c33238a23d408aa9d))
+
+
+### Miscellaneous
+
+* **deps:** bump the go_modules group across 1 directory with 2 updates ([#42](https://github.com/dklesev/terraform-provider-pihole/issues/42)) ([ae8fc4e](https://github.com/dklesev/terraform-provider-pihole/commit/ae8fc4e4f614b91c5b26714c2a56f929f7a99825))
+
 ## [1.0.8](https://github.com/dklesev/terraform-provider-pihole/compare/v1.0.7...v1.0.8) (2026-09-11)
 
 
