@@ -11,6 +11,13 @@ import (
 	"strings"
 )
 
+// escapeDomain escapes a domain for use as a path segment. PathEscape leaves
+// '+' literal, but FTL decodes it as a space, so a regex containing '+' would
+// never match its own stored entry.
+func escapeDomain(domain string) string {
+	return strings.ReplaceAll(url.PathEscape(domain), "+", "%2B")
+}
+
 // GetDomains retrieves domains with optional filters.
 func (c *Client) GetDomains(ctx context.Context, domainType, kind, domain string) ([]Domain, error) {
 	segments := []string{"domains"}
@@ -21,7 +28,7 @@ func (c *Client) GetDomains(ctx context.Context, domainType, kind, domain string
 		segments = append(segments, kind)
 	}
 	if domain != "" {
-		segments = append(segments, url.PathEscape(domain))
+		segments = append(segments, escapeDomain(domain))
 	}
 	path := strings.Join(segments, "/")
 
@@ -105,7 +112,7 @@ func (c *Client) UpdateDomain(ctx context.Context, originalType, originalKind, o
 		payload["kind"] = domain.Kind
 	}
 
-	path := fmt.Sprintf("domains/%s/%s/%s", originalType, originalKind, url.PathEscape(originalDomain))
+	path := fmt.Sprintf("domains/%s/%s/%s", originalType, originalKind, escapeDomain(originalDomain))
 	resp, err := c.Put(ctx, path, payload)
 	if err != nil {
 		return nil, err
@@ -133,7 +140,7 @@ func (c *Client) UpdateDomain(ctx context.Context, originalType, originalKind, o
 
 // DeleteDomain deletes a domain entry.
 func (c *Client) DeleteDomain(ctx context.Context, domainType, kind, domain string) error {
-	path := fmt.Sprintf("domains/%s/%s/%s", domainType, kind, url.PathEscape(domain))
+	path := fmt.Sprintf("domains/%s/%s/%s", domainType, kind, escapeDomain(domain))
 	_, err := c.Delete(ctx, path)
 	return err
 }

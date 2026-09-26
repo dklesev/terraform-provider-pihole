@@ -173,3 +173,36 @@ func TestClient_CreateDomain_ValidationErrors(t *testing.T) {
 		t.Error("Expected error for missing kind")
 	}
 }
+
+func TestClient_GetDomain_RegexWithPlus(t *testing.T) {
+	const regex = "^video-[a-z0-9-]+\\.example\\.com$"
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path == "/api/auth" {
+			json.NewEncoder(w).Encode(map[string]interface{}{
+				"session": map[string]interface{}{"valid": true, "sid": "test-sid"},
+			})
+			return
+		}
+		// FTL decodes a literal '+' in the path as a space, so only an
+		// escaped '+' matches the stored regex.
+		domains := []Domain{}
+		if r.URL.EscapedPath() == "/api/domains/deny/regex/%5Evideo-%5Ba-z0-9-%5D%2B%5C.example%5C.com$" {
+			domains = append(domains, Domain{ID: 1, Domain: regex, Type: "deny", Kind: "regex", Enabled: true})
+		}
+		json.NewEncoder(w).Encode(DomainsResponse{Domains: domains})
+	}))
+	defer server.Close()
+
+	client, err := New(Config{URL: server.URL, Password: "test"})
+	if err != nil {
+		t.Fatalf("Failed to create client: %v", err)
+	}
+
+	domain, err := client.GetDomain(context.Background(), "deny", "regex", regex)
+	if err != nil {
+		t.Fatalf("GetDomain() error = %v", err)
+	}
+	if domain == nil {
+		t.Fatal("GetDomain() returned nil for an existing regex containing '+'")
+	}
+}
